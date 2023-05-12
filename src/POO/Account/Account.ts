@@ -1,18 +1,17 @@
+import Payment from '../Payment/Payment';
 import User from '../User';
-
-type Payment = void;
 
 export type AccountParams = {
   id: number;
   _user: User;
-  _bankStatement: Payment[];
+  _bankStatement: Payment[] | void[];
   // _accountType: Account;
 };
 
 export default abstract class Account {
   private id: number;
   private _user: User;
-  private _bankStatement: Payment[];
+  private _bankStatement: Payment[] | void[];
   // private _accountType: Account;
 
   constructor(params: AccountParams) {
@@ -26,7 +25,7 @@ export default abstract class Account {
     return this._user;
   }
 
-  get bankStatement(): Payment[] {
+  get bankStatement(): Payment[] | void[] {
     return this._bankStatement;
   }
   // get account(): Account {

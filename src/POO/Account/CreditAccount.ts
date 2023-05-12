@@ -22,6 +22,6 @@ export default class CreditAccount extends Account {
     } else {
       throw new Error('Insufficient Value');
     }
-    return this.creditLimit.creditAvaliable();
+    return value;
   }
 }

@@ -18,6 +18,6 @@ export default class DebitAccount extends Account {
     } else {
       throw new Error('Insufficient Value');
     }
-    return this.balance;
+    return value;
   }
 }
