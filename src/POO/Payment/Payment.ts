@@ -34,9 +34,10 @@ export default abstract class Payment {
     return this._date;
   }
 
-  pay(): string {
-    const sendValue = this.fromAccount.send(this.value);
-    this.toAccount.receive(sendValue);
+  pay(paymentHistory: Payment): string {
+    const sendValue = this.fromAccount.send(this.value, paymentHistory);
+    this.toAccount.receive(sendValue, paymentHistory);
+
     return `${this.fromAccount.user.name} send ${sendValue} to ${this.toAccount.user.name}!`;
   }
 }

@@ -4,20 +4,20 @@ import User from '../User';
 export type AccountParams = {
   id: number;
   _user: User;
-  _bankStatement: Payment[] | void[];
+  // _bankStatement: Payment[];
   // _accountType: Account;
 };
 
 export default abstract class Account {
   private id: number;
   private _user: User;
-  private _bankStatement: Payment[] | void[];
+  protected _bankStatement: Payment[] | unknown[] = [];
   // private _accountType: Account;
 
   constructor(params: AccountParams) {
     this.id = params.id;
     this._user = params._user;
-    this._bankStatement = params._bankStatement;
+    // this._bankStatement = _bankStatement;
     // this._accountType = params._accountType;
   }
 
@@ -25,14 +25,23 @@ export default abstract class Account {
     return this._user;
   }
 
-  get bankStatement(): Payment[] | void[] {
-    return this._bankStatement;
+  get bankStatement(): Payment[] | unknown[] {
+    if (typeof this._bankStatement !== 'undefined') {
+      return this._bankStatement;
+    }
+    return [];
   }
   // get account(): Account {
   //   return this._accountType;
   // }
 
-  abstract receive(value: number): void;
+  receive(_value: number, paymentHistory: Payment): void {
+    this._bankStatement.push(paymentHistory);
+  }
 
-  abstract send(value: number): number;
+  send(value: number, paymentHistory: Payment): number {
+    console.log(this.bankStatement);
+    this._bankStatement.push(paymentHistory);
+    return value;
+  }
 }

@@ -1,3 +1,4 @@
+import Payment from '../Payment/Payment';
 import Account, {AccountParams} from './Account';
 import Credit from './Credit';
 
@@ -13,15 +14,18 @@ export default class CreditAccount extends Account {
     return this._creditLimit;
   }
 
-  receive(value: number): void {
+  receive(value: number, paymentHistory: Payment): void {
     this._creditLimit.payCredit(value);
+    super.receive(value, paymentHistory);
   }
-  send(value: number): number {
+
+  send(value: number, paymentHistory: Payment): number {
     if (value < this.creditLimit.creditAvaliable()) {
       this.creditLimit.useCredit(value);
     } else {
       throw new Error('Insufficient Value');
     }
+    super.send(value, paymentHistory);
     return value;
   }
 }
