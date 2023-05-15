@@ -1,20 +1,34 @@
 import IInvestiment from '../Interfaces/IInvestment';
-import Payment from '../Payment/Payment';
-import Account, {AccountParams} from '../Account/Account';
+import Account from '../Account/Account';
 
-export default class BrokeRage extends Account implements IInvestiment {
-  constructor(
-    params: AccountParams,
-    private _name: string,
-    private _balance: number,
-    private _porcent: number,
-  ) {
-    super(params);
+export type BrokeRageParams = {
+  account: Account;
+  name: string;
+  balance: number;
+  porcent: number;
+  minInvestimentValue: number;
+  redemptionDate: Date;
+};
+
+export default abstract class BrokeRage implements IInvestiment {
+  private _account: Account;
+  private _name: string;
+  private _balance: number;
+  private _porcent: number = 100; // 100 do CDI
+  private _minInvestimentValue: number = 100;
+  private _redemptionDate: Date = new Date();
+
+  constructor(params: BrokeRageParams) {
+    this._account = params.account;
+    this._name = params.name;
+    this._balance = params.balance;
+    this._porcent = params.porcent;
+    this._minInvestimentValue = params.minInvestimentValue;
+    this._redemptionDate = params.redemptionDate;
   }
 
-  incomeForecast(): string {
-    // Previsão de rendimento
-    throw new Error('Method not implemented.');
+  get account() {
+    return this._account;
   }
 
   get name() {
@@ -29,17 +43,31 @@ export default class BrokeRage extends Account implements IInvestiment {
     return this._porcent;
   }
 
-  receive(value: number, paymentHistory: Payment): void {
-    this._balance += value;
-    super.receive(value, paymentHistory);
+  get minInvestimentValue() {
+    return this._minInvestimentValue;
   }
-  send(value: number, paymentHistory: Payment): number {
-    if (value < this.balance) {
-      this._balance -= value;
-    } else {
-      throw new Error('Insufficient Value');
+  get redemptionDate() {
+    return this._redemptionDate;
+  }
+
+  incomeForecast(): string {
+    // Previsão de rendimento
+    throw new Error('Method not implemented.');
+  }
+
+  addValue(value: number) {
+    if (value > this.minInvestimentValue) {
+      // Criar um pagamento tipo investimento e usar dados do this.account
+      this._balance += value;
     }
-    super.send(value, paymentHistory);
-    return value;
+  }
+
+  redeemValue(value: number): number | string {
+    // Criar um pagamento tipo investimento e usar dados do this.account
+    if (value <= this.balance && this.redemptionDate < new Date()) {
+      this._balance -= value;
+      return value;
+    }
+    return 'Was not possible to get you money';
   }
 }
