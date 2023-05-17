@@ -12,16 +12,19 @@ import Pix from './Pages/Pix';
 import Ted from './Pages/Ted';
 import BankLip from './Pages/BankLip';
 import BankStatement from './Pages/BankStatement';
-import App from '../App';
 
 const Stack = createNativeStackNavigator();
 
-const Route = () => {
+export default function Routes() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Login" component={App} />
-        {/* <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{title: 'Some'}}
+        />
+        <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="EditProfile" component={EditProfile} />
         <Stack.Screen name="CreditCard" component={CreditCard} />
@@ -30,10 +33,8 @@ const Route = () => {
         <Stack.Screen name="PaymentPIX" component={Pix} />
         <Stack.Screen name="PaymentTED" component={Ted} />
         <Stack.Screen name="BankLipPayment" component={BankLip} />
-        <Stack.Screen name="BankStatement" component={BankStatement} /> */}
+        <Stack.Screen name="BankStatement" component={BankStatement} />
       </Stack.Navigator>
     </NavigationContainer>
   );
-};
-
-export default Route;
+}
