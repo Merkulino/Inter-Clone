@@ -1,8 +1,8 @@
-import CreditAccount from './POO/Account/CreditAccount';
-import DebitAccount from './POO/Account/DebitAccount';
-import BankLipPayment from './POO/Payment/BankLip';
-import PixPayment from './POO/Payment/PixPayment';
-import User from './POO/User';
+import CreditAccount from './BankSystem/Account/CreditAccount';
+import DebitAccount from './BankSystem/Account/DebitAccount';
+import BankLipPayment from './BankSystem/Payment/BankLip';
+import PixPayment from './BankSystem/Payment/PixPayment';
+import User from './BankSystem/User';
 
 export default class Main {
   constructor() {
