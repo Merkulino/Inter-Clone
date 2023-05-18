@@ -1,11 +1,16 @@
 import React from 'react';
-import {SafeAreaView, Text, View} from 'react-native';
+import {Button, SafeAreaView, Text, View} from 'react-native';
+import {NavigationScreenProp} from '../types';
 
-function Profile() {
+function Profile({navigation}: NavigationScreenProp) {
   return (
     <SafeAreaView>
       <View>
         <Text> Profile Page! </Text>
+        <Button
+          title="Editar perfil"
+          onPress={() => navigation.navigate('EditProfile')}
+        />
       </View>
     </SafeAreaView>
   );
