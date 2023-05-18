@@ -11,12 +11,17 @@ export default abstract class Payment {
   private _fromAccount: Account;
   private _toAccount: Account;
   private _value: number;
-  private _date?: Date = new Date();
-  constructor(params: PaymentParams) {
-    this._fromAccount = params.fromAccount;
-    this._toAccount = params.toAccount;
-    this._value = params.value;
-    this._date = params.date;
+  private _date: Date = new Date();
+  constructor({
+    fromAccount,
+    toAccount,
+    value,
+    date = new Date(),
+  }: PaymentParams) {
+    this._fromAccount = fromAccount;
+    this._toAccount = toAccount;
+    this._value = value;
+    this._date = date;
   }
 
   get fromAccount() {

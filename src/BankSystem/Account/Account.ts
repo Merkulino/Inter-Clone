@@ -40,7 +40,6 @@ export default abstract class Account {
   }
 
   send(value: number, paymentHistory: Payment): number {
-    console.log(this.bankStatement);
     this._bankStatement.push(paymentHistory);
     return value;
   }

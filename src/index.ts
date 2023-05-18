@@ -1,5 +1,6 @@
 import CreditAccount from './BankSystem/Account/CreditAccount';
 import DebitAccount from './BankSystem/Account/DebitAccount';
+import CDB from './BankSystem/Investments/CDB';
 import BankLipPayment from './BankSystem/Payment/BankLip';
 import PixPayment from './BankSystem/Payment/PixPayment';
 import User from './BankSystem/User';
@@ -22,6 +23,11 @@ export default class Main {
     const contaCredito = new CreditAccount({
       id: 0,
       _user: userMelqui,
+    });
+
+    const contaCredito2 = new CreditAccount({
+      id: 2,
+      _user: userMelqui2,
     });
 
     // conta.receive(555);
@@ -54,7 +60,20 @@ export default class Main {
 
     console.log(`------ ${pix.pay(pix)} -------`);
     // console.log('extrato:', conta.bankStatement);
-    console.log('extrato:', conta.bankStatement);
+
+    const invest = new CDB({
+      name: 'CDB - Inter',
+      porcent: 100,
+      minInvestimentValue: 20,
+    });
+
+    console.log('Cred mel2:', contaCredito2.creditLimit.creditAvaliable());
+    console.log('Balance:', invest.balance);
+    invest.addValue(50, contaCredito2);
+    console.log('extrato:', contaCredito2.bankStatement);
+    console.log('Balance:', invest.balance);
+    invest.redeemValue(20, contaCredito2);
+    console.log('extrato:', contaCredito2.bankStatement);
   }
   myConsole = () => console.log('hello react native cli');
 }
