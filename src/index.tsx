@@ -12,8 +12,9 @@ import Pix from './Pages/Pix';
 import Ted from './Pages/Ted';
 import BankLip from './Pages/BankLip';
 import BankStatement from './Pages/BankStatement';
+import {RootNavigatorParamList} from './types';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootNavigatorParamList>();
 
 export default function Routes() {
   return (
@@ -24,7 +25,11 @@ export default function Routes() {
           component={Login}
           options={{title: 'Some'}}
         />
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{headerShown: false}}
+        />
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="EditProfile" component={EditProfile} />
         <Stack.Screen name="CreditCard" component={CreditCard} />

@@ -1,13 +1,46 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {SafeAreaView, Text, View} from 'react-native';
+import {Button, SafeAreaView, Text, View} from 'react-native';
+import {NavigationScreenProp} from '../types';
 
-function Home() {
+function Home({navigation}: NavigationScreenProp) {
   return (
-    <SafeAreaView>
+    <>
+      <SafeAreaView>
+        <View>
+          <Text> Home Page! </Text>
+          <Text
+            style={{fontWeight: '900'}}
+            onPress={() => navigation.navigate('Profile')}>
+            PERFIL
+          </Text>
+          <Text
+            style={{fontWeight: '800'}}
+            onPress={() => navigation.navigate('BankStatement')}>
+            EXTRATO!
+          </Text>
+        </View>
+      </SafeAreaView>
       <View>
-        <Text> Home Page! </Text>
+        <Button
+          title="Cartão de Crédito"
+          onPress={() => navigation.navigate('CreditCard')}
+        />
+        <Button
+          title="Investimentos"
+          onPress={() => navigation.navigate('Investment')}
+        />
+        <Button title="PIX" onPress={() => navigation.navigate('PaymentPIX')} />
+        <Button
+          title="Transferências"
+          onPress={() => navigation.navigate('PaymentTED')}
+        />
+        <Button
+          title="Boletos"
+          onPress={() => navigation.navigate('BankLipPayment')}
+        />
       </View>
-    </SafeAreaView>
+    </>
   );
 }
 
