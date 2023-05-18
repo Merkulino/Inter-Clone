@@ -24,7 +24,7 @@ function Home({navigation}: NavigationScreenProp) {
       <View>
         <Button
           title="Cartão de Crédito"
-          onPress={() => navigation.navigate('CreditCard')}
+          onPress={() => navigation.push('CreditCard')}
         />
         <Button
           title="Investimentos"

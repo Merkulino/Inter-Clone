@@ -9,7 +9,7 @@ function Profile({navigation}: NavigationScreenProp) {
         <Text> Profile Page! </Text>
         <Button
           title="Editar perfil"
-          onPress={() => navigation.navigate('EditProfile')}
+          onPress={() => navigation.push('EditProfile')}
         />
       </View>
     </SafeAreaView>

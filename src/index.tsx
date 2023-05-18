@@ -19,7 +19,10 @@ const Stack = createNativeStackNavigator<RootNavigatorParamList>();
 export default function Routes() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          animation: 'slide_from_right',
+        }}>
         <Stack.Screen
           name="Login"
           component={Login}
@@ -31,10 +34,18 @@ export default function Routes() {
           options={{headerShown: false}}
         />
         <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen name="EditProfile" component={EditProfile} />
+        <Stack.Screen
+          name="EditProfile"
+          component={EditProfile}
+          options={{animation: 'slide_from_bottom'}}
+        />
         <Stack.Screen name="CreditCard" component={CreditCard} />
         <Stack.Screen name="Investment" component={Investment} />
-        <Stack.Screen name="InvestmentDetails" component={InvestmentDetails} />
+        <Stack.Screen
+          name="InvestmentDetails"
+          component={InvestmentDetails}
+          options={{animation: 'slide_from_bottom'}}
+        />
         <Stack.Screen name="PaymentPIX" component={Pix} />
         <Stack.Screen name="PaymentTED" component={Ted} />
         <Stack.Screen name="BankLipPayment" component={BankLip} />

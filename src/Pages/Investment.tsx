@@ -9,15 +9,15 @@ function Investment({navigation}: NavigationScreenProp) {
         <Text> Investment Page! </Text>
         <Button
           title="Investir em CDB"
-          onPress={() => navigation.navigate('InvestmentDetails')}
+          onPress={() => navigation.push('InvestmentDetails')}
         />
         <Button
           title="Investir em LCI"
-          onPress={() => navigation.navigate('InvestmentDetails')}
+          onPress={() => navigation.push('InvestmentDetails')}
         />
         <Button
           title="Investir em CRI"
-          onPress={() => navigation.navigate('InvestmentDetails')}
+          onPress={() => navigation.push('InvestmentDetails')}
         />
       </View>
     </SafeAreaView>
