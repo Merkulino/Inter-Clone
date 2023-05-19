@@ -8,11 +8,15 @@ function Login({navigation}: NavigationScreenProp) {
   const [accNum, setAccNum] = useState('');
   const [password, setPassword] = useState('');
 
+  // const handleChange = (setState: (arg0: any) => void) => (event) => {
+  //   setState(event.);
+  // };
+
   return (
     <SafeAreaView style={loginStyle.container}>
       <Image
         source={require('../Styles/Assets/logobancointer.png')}
-        style={loginStyle.smallLogo}
+        style={appStyles.smallLogo}
       />
       <View style={loginStyle.formView}>
         <Text>Conta</Text>

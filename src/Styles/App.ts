@@ -14,17 +14,25 @@ const appStyles = StyleSheet.create({
     margin: 10,
   },
   textInput: {
+    color: '#000000',
     backgroundColor: '#F5F6FA',
     borderRadius: 10,
     padding: 10,
     marginLeft: 0,
     margin: 10,
     fontWeight: '500',
-    color: '#000000',
   },
   smallLogo: {
-    width: 50,
-    height: 50,
+    width: 110,
+    height: 40,
+    alignSelf: 'center',
+  },
+  btnContainer: {
+    alignContent: 'stretch',
+    width: 110,
+    height: 110,
+    borderWidth: 0.5,
+    borderRadius: 5,
   },
 });
 

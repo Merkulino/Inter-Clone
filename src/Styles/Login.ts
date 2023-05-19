@@ -11,11 +11,6 @@ const loginStyle = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
   },
-  smallLogo: {
-    width: 110,
-    height: 40,
-    alignSelf: 'center',
-  },
 });
 
 export {loginStyle};

@@ -1,46 +1,60 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {Button, SafeAreaView, Text, View} from 'react-native';
+import {Image, SafeAreaView, Text, View} from 'react-native';
 import {NavigationScreenProp} from '../types';
+import {homeStyle} from '../Styles/Home';
+import {IconButtonSelector} from '../Components/Button';
 
 function Home({navigation}: NavigationScreenProp) {
   return (
-    <>
-      <SafeAreaView>
-        <View>
-          <Text> Home Page! </Text>
-          <Text
-            style={{fontWeight: '900'}}
-            onPress={() => navigation.navigate('Profile')}>
-            PERFIL
-          </Text>
-          <Text
-            style={{fontWeight: '800'}}
-            onPress={() => navigation.navigate('BankStatement')}>
-            EXTRATO!
-          </Text>
-        </View>
-      </SafeAreaView>
-      <View>
-        <Button
-          title="Cartão de Crédito"
-          onPress={() => navigation.push('CreditCard')}
+    <SafeAreaView style={homeStyle.container}>
+      <View style={homeStyle.header}>
+        <Image
+          style={homeStyle.smallLogo}
+          source={require('../Styles/Assets/logobancointer.png')}
         />
-        <Button
-          title="Investimentos"
-          onPress={() => navigation.navigate('Investment')}
+        <Text
+          style={{fontWeight: '900'}}
+          onPress={() => navigation.navigate('Profile')}>
+          PERFIL
+        </Text>
+      </View>
+      <View style={homeStyle.valueSection}>
+        <Text> R$ 99,99 </Text>
+        <Text
+          style={{fontWeight: '900'}}
+          onPress={() => navigation.navigate('BankStatement')}>
+          EXTRATO!
+        </Text>
+      </View>
+      <View style={homeStyle.btnSection}>
+        <IconButtonSelector
+          title="Crédito"
+          navigation={navigation}
+          page="CreditCard"
         />
-        <Button title="PIX" onPress={() => navigation.navigate('PaymentPIX')} />
-        <Button
+        <IconButtonSelector
+          title="PIX"
+          navigation={navigation}
+          page="PaymentPIX"
+        />
+        <IconButtonSelector
+          title="Investir"
+          navigation={navigation}
+          page="Investment"
+        />
+        <IconButtonSelector
+          title="Boleto"
+          navigation={navigation}
+          page="BankLipPayment"
+        />
+        <IconButtonSelector
           title="Transferências"
-          onPress={() => navigation.navigate('PaymentTED')}
-        />
-        <Button
-          title="Boletos"
-          onPress={() => navigation.navigate('BankLipPayment')}
+          navigation={navigation}
+          page="PaymentTED"
         />
       </View>
-    </>
+    </SafeAreaView>
   );
 }
 

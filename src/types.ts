@@ -1,5 +1,18 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack/lib/typescript/src/types';
 
+export type RootPageString =
+  | 'Login'
+  | 'Home'
+  | 'Profile'
+  | 'EditProfile'
+  | 'CreditCard'
+  | 'Investment'
+  | 'InvestmentDetails'
+  | 'PaymentPIX'
+  | 'PaymentTED'
+  | 'BankLipPayment'
+  | 'BankStatement';
+
 export type RootNavigatorParamList = {
   Login: undefined;
   Home: undefined;
