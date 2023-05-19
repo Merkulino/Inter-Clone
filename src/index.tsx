@@ -26,7 +26,10 @@ export default function Routes() {
         <Stack.Screen
           name="Login"
           component={Login}
-          options={{title: 'Some'}}
+          options={{
+            title: 'Some',
+            headerShown: false,
+          }}
         />
         <Stack.Screen
           name="Home"
