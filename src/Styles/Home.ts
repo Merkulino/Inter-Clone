@@ -13,7 +13,7 @@ const homeStyle = StyleSheet.create({
     justifyContent: 'space-between',
     alignContent: 'flex-start',
     margin: 10,
-    width: 70, // Ver um fit content disso aqui
+    width: 100, // Ver um fit content disso aqui
     gap: 10,
   },
   smallLogo: {
@@ -25,6 +25,7 @@ const homeStyle = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
+    marginTop: 10,
     gap: 5,
   },
 });

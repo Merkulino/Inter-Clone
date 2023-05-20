@@ -31,8 +31,9 @@ const btnStyle = StyleSheet.create({
     color: '#000000',
     flexDirection: 'column',
     justifyContent: 'center',
-    height: 109, // Pesquisar um fitContent
     shadowOpacity: 0,
+    height: 109,
+    borderRadius: 5,
   },
   txt: {
     color: '#000000',

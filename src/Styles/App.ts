@@ -1,6 +1,8 @@
 import {StyleSheet} from 'react-native';
 
 var primaryColor = '#FC882F';
+var primaryGreyColor = '#F5F6FA';
+var primaryGreyDarkColor = '#808080';
 
 const appStyles = StyleSheet.create({
   container: {
@@ -15,7 +17,7 @@ const appStyles = StyleSheet.create({
   },
   textInput: {
     color: '#000000',
-    backgroundColor: '#F5F6FA',
+    backgroundColor: primaryGreyColor,
     borderRadius: 10,
     padding: 10,
     marginLeft: 0,
@@ -28,11 +30,11 @@ const appStyles = StyleSheet.create({
     alignSelf: 'center',
   },
   btnContainer: {
-    alignContent: 'stretch',
     width: 110,
     height: 110,
     borderWidth: 0.5,
     borderRadius: 5,
+    borderColor: primaryGreyDarkColor,
   },
 });
 

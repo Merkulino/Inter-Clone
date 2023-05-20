@@ -24,7 +24,7 @@ function Home({navigation}: NavigationScreenProp) {
         <Text
           style={{fontWeight: '900'}}
           onPress={() => navigation.navigate('BankStatement')}>
-          EXTRATO!
+          Ver extrato
         </Text>
       </View>
       <View style={homeStyle.btnSection}>
