@@ -36,6 +36,9 @@ function Login({navigation}: NavigationScreenProp) {
         />
 
         <View style={appStyles.primaryButton}>
+          {
+            // Componentizar Btn
+          }
           <Button
             title="Entrar"
             color={primaryColor}

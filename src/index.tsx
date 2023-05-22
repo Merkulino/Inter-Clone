@@ -49,7 +49,15 @@ export default function Routes() {
           component={InvestmentDetails}
           options={{animation: 'slide_from_bottom'}}
         />
-        <Stack.Screen name="PaymentPIX" component={Pix} />
+        <Stack.Screen
+          name="PaymentPIX"
+          component={Pix}
+          options={{
+            title: 'Pix',
+            headerTitleAlign: 'center', // Deixar global
+            headerShadowVisible: false,
+          }}
+        />
         <Stack.Screen name="PaymentTED" component={Ted} />
         <Stack.Screen name="BankLipPayment" component={BankLip} />
         <Stack.Screen name="BankStatement" component={BankStatement} />

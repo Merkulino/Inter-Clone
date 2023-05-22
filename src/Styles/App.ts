@@ -12,7 +12,7 @@ const appStyles = StyleSheet.create({
   },
   primaryButton: {
     backgroundColor: primaryColor,
-    borderRadius: 50,
+    borderRadius: 10,
     margin: 10,
   },
   textInput: {
@@ -35,6 +35,15 @@ const appStyles = StyleSheet.create({
     borderWidth: 0.5,
     borderRadius: 5,
     borderColor: primaryGreyDarkColor,
+  },
+  balanceContent: {
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    borderWidth: 0.5,
+    borderRadius: 5,
+    borderColor: primaryGreyDarkColor,
+    paddingHorizontal: 10,
+    paddingVertical: 15,
   },
 });
 
