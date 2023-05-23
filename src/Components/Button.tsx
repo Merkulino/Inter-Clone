@@ -1,17 +1,40 @@
+/* eslint-disable react-native/no-inline-styles */
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {RootNavigatorParamList, RootPageString} from '../types';
-import {appStyles} from '../Styles/App';
+import {appStyles, primaryColor} from '../Styles/App';
 
-type props = {
+type DefaultBtn = {
+  title: string;
+};
+
+type NavigationBtnProp = {
   title: string;
   navigation: NativeStackNavigationProp<RootNavigatorParamList>;
   page: RootPageString;
 };
 
-const IconButtonSelector = ({title, navigation, page}: props) => {
+const PrimaryButton = ({title}: DefaultBtn) => {
+  return (
+    <View style={btnStyle.primaryButton}>
+      <Text style={{fontWeight: '900'}}>{title}</Text>
+    </View>
+  );
+};
+
+const PrimaryNavigationBtn = ({title, navigation, page}: NavigationBtnProp) => {
+  return (
+    <TouchableOpacity
+      style={btnStyle.primaryButton}
+      onPress={() => navigation.navigate(page)}>
+      <Text style={{fontWeight: '900'}}>{title}</Text>
+    </TouchableOpacity>
+  );
+};
+
+const IconButtonSelector = ({title, navigation, page}: NavigationBtnProp) => {
   // Ver essa questão dos Icon não funcionando
   return (
     <View style={appStyles.btnContainer}>
@@ -40,6 +63,17 @@ const btnStyle = StyleSheet.create({
     fontSize: 10,
     fontWeight: '900',
   },
+  primaryButton: {
+    backgroundColor: primaryColor,
+    borderRadius: 10,
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 5,
+    height: 50,
+    padding: 5,
+    width: 300,
+  },
 });
 
-export {IconButtonSelector};
+export {IconButtonSelector, PrimaryButton, PrimaryNavigationBtn};

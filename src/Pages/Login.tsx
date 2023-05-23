@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import {SafeAreaView, Text, View, Button, TextInput, Image} from 'react-native';
+import {SafeAreaView, Text, View, TextInput, Image} from 'react-native';
 import {NavigationScreenProp} from '../types';
-import {appStyles, primaryColor} from '../Styles/App';
+import {appStyles} from '../Styles/App';
 import {loginStyle} from '../Styles/Login';
+import {PrimaryNavigationBtn} from '../Components/Button';
 
 function Login({navigation}: NavigationScreenProp) {
   const [accNum, setAccNum] = useState('');
@@ -34,17 +35,11 @@ function Login({navigation}: NavigationScreenProp) {
           value={password}
           onChange={() => setPassword}
         />
-
-        <View style={appStyles.primaryButton}>
-          {
-            // Componentizar Btn
-          }
-          <Button
-            title="Entrar"
-            color={primaryColor}
-            onPress={() => navigation.navigate('Home')}
-          />
-        </View>
+        <PrimaryNavigationBtn
+          title="Entrar"
+          navigation={navigation}
+          page="Home"
+        />
       </View>
     </SafeAreaView>
   );

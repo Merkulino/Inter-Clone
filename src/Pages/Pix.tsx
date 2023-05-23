@@ -3,6 +3,8 @@ import React from 'react';
 import {SafeAreaView, Text, View, TextInput} from 'react-native';
 import {pixStyle} from '../Styles/Pix';
 import {appStyles} from '../Styles/App';
+import {PrimaryButton} from '../Components/Button';
+import {PaymentComponent} from '../Components/PaymentComponent';
 
 function Pix() {
   return (
@@ -17,18 +19,17 @@ function Pix() {
         </View>
         <View>
           <Text style={{fontWeight: '700'}}> Chave </Text>
+          {
+            // MaskInput
+          }
           <TextInput
             placeholder="CPF, CNPJ, celular, e-mail ou aleatória"
             style={appStyles.textInput}
           />
         </View>
+        <PaymentComponent />
       </View>
-      <View style={pixStyle.btn}>
-        {
-          // Componentizar Btn
-        }
-        <Text style={{fontWeight: '900'}}>Pagar</Text>
-      </View>
+      <PrimaryButton title="Pagar" />
     </SafeAreaView>
   );
 }
