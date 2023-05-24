@@ -1,17 +1,27 @@
-import React, {useState} from 'react';
-import {SafeAreaView, Text, View, TextInput, Image} from 'react-native';
+import React, {useContext, useState} from 'react';
+import {SafeAreaView, Text, View, TextInput, Image, Alert} from 'react-native';
 import {NavigationScreenProp} from '../types';
 import {appStyles} from '../Styles/App';
 import {loginStyle} from '../Styles/Login';
-import {PrimaryNavigationBtn} from '../Components/Button';
+import {PrimaryButton} from '../Components/Button';
+import {UserContext} from '../AppContext/UserProvider';
+import {AccountContext} from '../AppContext/AccountProvider';
 
 function Login({navigation}: NavigationScreenProp) {
-  const [accNum, setAccNum] = useState('');
+  const {setUser} = useContext(UserContext);
+  const {setData} = useContext(AccountContext);
+  const [account, setAccNum] = useState('');
   const [password, setPassword] = useState('');
 
-  // const handleChange = (setState: (arg0: any) => void) => (event) => {
-  //   setState(event.);
-  // };
+  const loginUser = () => {
+    if (!account.trim() || !password.trim()) {
+      Alert.alert('Inputs vazio', 'Não é possivel logar sem dados de usuario');
+    } else if (setUser && setData) {
+      setUser({password});
+      setData({account});
+      navigation.navigate('Home');
+    }
+  };
 
   return (
     <SafeAreaView style={loginStyle.container}>
@@ -24,8 +34,10 @@ function Login({navigation}: NavigationScreenProp) {
         <TextInput
           style={appStyles.textInput}
           placeholder="Digite o numero da conta"
-          value={accNum}
-          onChange={() => setAccNum}
+          defaultValue={account}
+          onChangeText={value => setAccNum(value)}
+          keyboardType="numeric"
+          maxLength={8}
         />
 
         <Text>Senha</Text>
@@ -33,13 +45,9 @@ function Login({navigation}: NavigationScreenProp) {
           style={appStyles.textInput}
           placeholder="Digite sua senha"
           value={password}
-          onChange={() => setPassword}
+          onChangeText={value => setPassword(value)}
         />
-        <PrimaryNavigationBtn
-          title="Entrar"
-          navigation={navigation}
-          page="Home"
-        />
+        <PrimaryButton title="Entrar" btnFunction={loginUser} />
       </View>
     </SafeAreaView>
   );

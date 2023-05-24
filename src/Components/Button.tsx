@@ -6,9 +6,10 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import {RootNavigatorParamList, RootPageString} from '../types';
 import {appStyles, primaryColor} from '../Styles/App';
 
-type DefaultBtn = {
+interface IBtnProp {
   title: string;
-};
+  btnFunction?(): void;
+}
 
 type NavigationBtnProp = {
   title: string;
@@ -16,23 +17,17 @@ type NavigationBtnProp = {
   page: RootPageString;
 };
 
-const PrimaryButton = ({title}: DefaultBtn) => {
-  return (
-    <View style={btnStyle.primaryButton}>
-      <Text style={{fontWeight: '900'}}>{title}</Text>
-    </View>
-  );
-};
-
-const PrimaryNavigationBtn = ({title, navigation, page}: NavigationBtnProp) => {
-  return (
-    <TouchableOpacity
-      style={btnStyle.primaryButton}
-      onPress={() => navigation.navigate(page)}>
-      <Text style={{fontWeight: '900'}}>{title}</Text>
-    </TouchableOpacity>
-  );
-};
+const PrimaryButton = ({title, btnFunction}: IBtnProp) => (
+  <TouchableOpacity
+    style={btnStyle.primaryButton}
+    onPress={() => {
+      if (btnFunction) {
+        btnFunction();
+      }
+    }}>
+    <Text style={{fontWeight: '900'}}>{title}</Text>
+  </TouchableOpacity>
+);
 
 const IconButtonSelector = ({title, navigation, page}: NavigationBtnProp) => {
   // Ver essa questão dos Icon não funcionando
@@ -76,4 +71,4 @@ const btnStyle = StyleSheet.create({
   },
 });
 
-export {IconButtonSelector, PrimaryButton, PrimaryNavigationBtn};
+export {IconButtonSelector, PrimaryButton};

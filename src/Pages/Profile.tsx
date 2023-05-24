@@ -1,11 +1,13 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
+import React, {useContext} from 'react';
 import {SafeAreaView, Text, View, Image} from 'react-native';
 import {NavigationScreenProp} from '../types';
 import {profileStyle} from '../Styles/Profile';
-import {PrimaryNavigationBtn} from '../Components/Button';
+import {PrimaryButton} from '../Components/Button';
+import {AccountContext} from '../AppContext/AccountProvider';
 
 function Profile({navigation}: NavigationScreenProp) {
+  const {accountData} = useContext(AccountContext);
   return (
     <SafeAreaView style={profileStyle.container}>
       <View style={profileStyle.contentView}>
@@ -26,15 +28,14 @@ function Profile({navigation}: NavigationScreenProp) {
           <Text style={{fontWeight: '600'}}>CPF</Text>
           <Text style={{fontWeight: '900'}}>Dados bancarios</Text>
           <Text>Numero da conta</Text>
-          <Text style={{fontWeight: '600'}}>Numero da conta</Text>
+          <Text style={{fontWeight: '600'}}>{accountData.account}</Text>
           <Text>Agencia</Text>
           <Text style={{fontWeight: '600'}}>Agencia</Text>
           <Text>Banco</Text>
           <Text style={{fontWeight: '600'}}>Banco</Text>
-          <PrimaryNavigationBtn
+          <PrimaryButton
             title="Atualizar dados"
-            navigation={navigation}
-            page="EditProfile"
+            btnFunction={() => navigation.navigate('EditProfile')}
           />
         </View>
       </View>
