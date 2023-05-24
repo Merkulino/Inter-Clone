@@ -22,6 +22,8 @@ export default function Routes() {
       <Stack.Navigator
         screenOptions={{
           animation: 'slide_from_right',
+          headerTitleAlign: 'center',
+          headerShadowVisible: false,
         }}>
         <Stack.Screen
           name="Login"
@@ -36,7 +38,11 @@ export default function Routes() {
           component={Home}
           options={{headerShown: false}}
         />
-        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+          options={{title: 'Perfil'}}
+        />
         <Stack.Screen
           name="EditProfile"
           component={EditProfile}
@@ -52,11 +58,7 @@ export default function Routes() {
         <Stack.Screen
           name="PaymentPIX"
           component={Pix}
-          options={{
-            title: 'Pix',
-            headerTitleAlign: 'center', // Deixar global
-            headerShadowVisible: false,
-          }}
+          options={{title: 'Pix'}}
         />
         <Stack.Screen name="PaymentTED" component={Ted} />
         <Stack.Screen name="BankLipPayment" component={BankLip} />
