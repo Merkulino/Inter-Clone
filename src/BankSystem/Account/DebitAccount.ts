@@ -1,3 +1,4 @@
+import Payment from '../Payment/Payment';
 import Account, {AccountParams} from './Account';
 
 export default class DebitAccount extends Account {
@@ -9,15 +10,17 @@ export default class DebitAccount extends Account {
     return this._balance;
   }
 
-  receive(value: number): void {
+  receive(value: number, paymentHistory: Payment): void {
     this._balance += value;
+    super.receive(value, paymentHistory);
   }
-  send(value: number): number {
+  send(value: number, paymentHistory: Payment): number {
     if (value < this.balance) {
       this._balance -= value;
     } else {
       throw new Error('Insufficient Value');
     }
-    return this.balance;
+    super.send(value, paymentHistory);
+    return value;
   }
 }
