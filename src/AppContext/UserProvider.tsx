@@ -1,18 +1,18 @@
 /* eslint-disable react/react-in-jsx-scope */
 import {createContext, useState} from 'react';
-
-type usrTypeData = {
-  password: string;
-};
+import User from '../BankSystem/Interfaces/IUser';
 
 interface IUserContext {
-  userData: usrTypeData;
-  setUser?(data: usrTypeData): any;
+  userData: User;
+  setUser?(data: User): any;
 }
 
 const defaultState = {
   userData: {
-    password: '',
+    id: 0,
+    name: '',
+    mail: '',
+    cpf: '',
   },
 };
 

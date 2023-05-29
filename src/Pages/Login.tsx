@@ -6,6 +6,9 @@ import {loginStyle} from '../Styles/Login';
 import {PrimaryButton} from '../Components/Button';
 import {UserContext} from '../AppContext/UserProvider';
 import {AccountContext} from '../AppContext/AccountProvider';
+import User from '../BankSystem/User';
+import DebitAccount from '../BankSystem/Account/DebitAccount';
+import CreditAccount from '../BankSystem/Account/CreditAccount';
 
 function Login({navigation}: NavigationScreenProp) {
   const {setUser} = useContext(UserContext);
@@ -17,7 +20,11 @@ function Login({navigation}: NavigationScreenProp) {
     if (!account.trim() || !password.trim()) {
       Alert.alert('Inputs vazio', 'Não é possivel logar sem dados de usuario');
     } else if (setUser && setData) {
-      setUser({password});
+      // Create default User and deafult Account
+      const user = new User(1, 'Melqui Brito', 'user@user.com', '1234567890');
+      const debitAccount = new DebitAccount({id: 1, _user: user}, 200);
+      const creditAccount = new CreditAccount({id: 1, _user: user});
+      setUser(user);
       setData({account});
       navigation.navigate('Home');
     }
