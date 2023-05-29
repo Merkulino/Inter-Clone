@@ -4,10 +4,10 @@ import {SafeAreaView, Text, View, Image} from 'react-native';
 import {NavigationScreenProp} from '../types';
 import {profileStyle} from '../Styles/Profile';
 import {PrimaryButton} from '../Components/Button';
-import {AccountContext} from '../AppContext/AccountProvider';
+import {UserContext} from '../AppContext/UserProvider';
 
 function Profile({navigation}: NavigationScreenProp) {
-  const {accountData} = useContext(AccountContext);
+  const {userData} = useContext(UserContext);
   return (
     <SafeAreaView style={profileStyle.container}>
       <View style={profileStyle.contentView}>
@@ -17,18 +17,18 @@ function Profile({navigation}: NavigationScreenProp) {
             uri: 'https://www.pngall.com/wp-content/uploads/5/Profile-PNG-File.png',
           }}
         />
-        <Text style={{fontWeight: '800'}}> USERNAME </Text>
+        <Text style={{fontWeight: '800'}}> {userData.name} </Text>
         <View style={profileStyle.dataContent}>
           <Text style={{fontWeight: '900'}}>Dados pessoais</Text>
           <Text>Email</Text>
-          <Text style={{fontWeight: '600'}}>Email</Text>
+          <Text style={{fontWeight: '600'}}>{userData.mail}</Text>
           <Text>Nome de usuario</Text>
-          <Text style={{fontWeight: '600'}}>Nome de usuario</Text>
+          <Text style={{fontWeight: '600'}}>{userData.name}</Text>
           <Text>CPF</Text>
-          <Text style={{fontWeight: '600'}}>CPF</Text>
+          <Text style={{fontWeight: '600'}}>{userData.cpf}</Text>
           <Text style={{fontWeight: '900'}}>Dados bancarios</Text>
           <Text>Numero da conta</Text>
-          <Text style={{fontWeight: '600'}}>{accountData.account}</Text>
+          <Text style={{fontWeight: '600'}}>blablabalbal</Text>
           <Text>Agencia</Text>
           <Text style={{fontWeight: '600'}}>Agencia</Text>
           <Text>Banco</Text>

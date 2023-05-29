@@ -22,10 +22,14 @@ function Login({navigation}: NavigationScreenProp) {
     } else if (setUser && setData) {
       // Create default User and deafult Account
       const user = new User(1, 'Melqui Brito', 'user@user.com', '1234567890');
-      const debitAccount = new DebitAccount({id: 1, _user: user}, 200);
-      const creditAccount = new CreditAccount({id: 1, _user: user});
+      const debit = new DebitAccount(
+        {id: 1, _user: user},
+        Number((Math.random() * (1000 - 100 + 1) + 100).toFixed(2)),
+      );
+      const credit = new CreditAccount({id: 1, _user: user});
+
       setUser(user);
-      setData({account});
+      setData({debit, credit});
       navigation.navigate('Home');
     }
   };
