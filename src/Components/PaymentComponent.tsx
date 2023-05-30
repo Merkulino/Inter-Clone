@@ -5,9 +5,13 @@ import MaskInput, {Masks} from 'react-native-mask-input';
 import {Text} from 'react-native';
 import {primaryColor} from '../Styles/App';
 
-const PaymentComponent = () => {
-  // Receber via prop: Value, SetValue, 'Pagar para'
-  const [mask, setMask] = React.useState('');
+interface props {
+  valueInput: string;
+  setValue(value: string): void;
+}
+
+const PaymentComponent = ({valueInput, setValue}: props) => {
+  // const [_mask, setMask] = React.useState('');
 
   return (
     <View style={styles.component}>
@@ -16,8 +20,8 @@ const PaymentComponent = () => {
         placeholder="R$ 0,00"
         placeholderTextColor={primaryColor}
         keyboardType="numeric"
-        value={mask}
-        onChangeText={masked => setMask(masked)}
+        value={valueInput}
+        onChangeText={masked => setValue(masked)}
         mask={Masks.BRL_CURRENCY}
       />
       <Text style={{fontSize: 13}}>Pagar Para</Text>
