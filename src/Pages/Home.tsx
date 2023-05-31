@@ -1,15 +1,23 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useContext} from 'react';
+import React, {useCallback, useContext, useState} from 'react';
 import {Image, SafeAreaView, Text, View} from 'react-native';
 import {NavigationScreenProp} from '../types';
 import {homeStyle} from '../Styles/Home';
 import {IconButtonSelector} from '../Components/Button';
 import {AccountContext} from '../AppContext/AccountProvider';
+import {useFocusEffect} from '@react-navigation/native';
 
 function Home({navigation}: NavigationScreenProp) {
   const {
     accountData: {debit},
   } = useContext(AccountContext);
+  const [balance, setBalance] = useState(debit.balance.toFixed(2));
+
+  useFocusEffect(
+    useCallback(() => {
+      setBalance(debit.balance.toFixed(2));
+    }, [debit]),
+  );
 
   return (
     <SafeAreaView style={homeStyle.container}>
@@ -25,7 +33,7 @@ function Home({navigation}: NavigationScreenProp) {
         </Text>
       </View>
       <View style={homeStyle.valueSection}>
-        <Text> R$ {debit.balance} </Text>
+        <Text> R$ {balance} </Text>
         <Text
           style={{fontWeight: '900'}}
           onPress={() => navigation.navigate('BankStatement')}>

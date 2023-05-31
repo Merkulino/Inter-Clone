@@ -20,6 +20,7 @@ function Pix() {
   const {
     accountData: {debit},
   } = useContext(AccountContext);
+  const [balance, setBalance] = useState(debit.balance.toFixed(2));
   const [valueInput, setValue] = useState('');
 
   const validBalance = (value: number) => {
@@ -45,8 +46,11 @@ function Pix() {
         toAccount: otherDebitAccount,
         value,
       });
+
       debit.send(value, pix);
+      setBalance(debit.balance.toFixed(2));
       Alert.alert('Pagamento realizado!');
+      setValue('');
     } catch (error) {
       Alert.alert('Erro ao enviar pix', `Error: ${error}`);
     }
@@ -60,7 +64,7 @@ function Pix() {
             // Componentizar balance
           }
           <Text>Saldo em conta</Text>
-          <Text>R$ {debit.balance.toFixed(2)}</Text>
+          <Text>R$ {balance}</Text>
         </View>
         <View>
           <Text style={{fontWeight: '700'}}> Chave </Text>
