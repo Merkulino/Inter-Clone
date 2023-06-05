@@ -11,6 +11,7 @@ import {Alert} from 'react-native';
 import PixPayment from '../BankSystem/Payment/PixPayment';
 import User from '../BankSystem/User';
 import DebitAccount from '../BankSystem/Account/DebitAccount';
+import {Balance} from '../Components/Balance';
 
 // Criando um outra conta generica para desenvolvimento / Deixar global
 const otherUser = new User(2, 'Pessoa', 'pessoa@pess.com', '1234567890');
@@ -20,7 +21,6 @@ function Pix() {
   const {
     accountData: {debit},
   } = useContext(AccountContext);
-  const [balance, setBalance] = useState(debit.balance.toFixed(2));
   const [valueInput, setValue] = useState('');
 
   const validBalance = (value: number) => {
@@ -45,10 +45,11 @@ function Pix() {
         fromAccount: debit,
         toAccount: otherDebitAccount,
         value,
+        date: new Date(),
+        paymentName: 'Pix',
       });
 
       debit.send(value, pix);
-      setBalance(debit.balance.toFixed(2));
       Alert.alert('Pagamento realizado!');
       setValue('');
     } catch (error) {
@@ -59,13 +60,7 @@ function Pix() {
   return (
     <SafeAreaView style={pixStyle.container}>
       <View style={pixStyle.header}>
-        <View style={appStyles.balanceContent}>
-          {
-            // Componentizar balance
-          }
-          <Text>Saldo em conta</Text>
-          <Text>R$ {balance}</Text>
-        </View>
+        <Balance />
         <View>
           <Text style={{fontWeight: '700'}}> Chave </Text>
           <TextInput

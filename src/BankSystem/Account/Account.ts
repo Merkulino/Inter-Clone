@@ -1,5 +1,13 @@
-import Payment from '../Payment/Payment';
+import {PaymentParams} from '../Payment/Payment';
 import User from '../User';
+
+type StatementType = {
+  date: Date;
+  from: string;
+  to: string;
+  pay: string;
+  value: number;
+};
 
 export type AccountParams = {
   id: number;
@@ -11,7 +19,7 @@ export type AccountParams = {
 export default abstract class Account {
   private id: number;
   private _user: User;
-  protected _bankStatement: Payment[] | unknown[] = [];
+  protected _bankStatement: StatementType[] | any[] = [];
   // private _accountType: Account;
 
   constructor(params: AccountParams) {
@@ -25,7 +33,7 @@ export default abstract class Account {
     return this._user;
   }
 
-  get bankStatement(): Payment[] | unknown[] {
+  get bankStatement(): StatementType[] | any[] {
     if (typeof this._bankStatement !== 'undefined') {
       return this._bankStatement;
     }
@@ -35,12 +43,24 @@ export default abstract class Account {
   //   return this._accountType;
   // }
 
-  receive(_value: number, paymentHistory: Payment): void {
-    this._bankStatement.push(paymentHistory);
+  receive(_value: number, paymentHistory: PaymentParams): void {
+    this._bankStatement.push({
+      date: paymentHistory.date,
+      from: paymentHistory.fromAccount._user.name,
+      to: paymentHistory.toAccount._user.name,
+      pay: paymentHistory.paymentName,
+      value: paymentHistory.value,
+    });
   }
 
-  send(value: number, paymentHistory: Payment): number {
-    this._bankStatement.push(paymentHistory);
+  send(value: number, paymentHistory: PaymentParams): number {
+    this._bankStatement.push({
+      date: paymentHistory.date,
+      from: paymentHistory.fromAccount._user.name,
+      to: paymentHistory.toAccount._user.name,
+      pay: paymentHistory.paymentName,
+      value: paymentHistory.value,
+    });
     return value;
   }
 }

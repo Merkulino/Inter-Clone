@@ -1,4 +1,4 @@
-import Payment from '../Payment/Payment';
+import {PaymentParams} from '../Payment/Payment';
 import Account, {AccountParams} from './Account';
 
 export default class DebitAccount extends Account {
@@ -10,11 +10,11 @@ export default class DebitAccount extends Account {
     return this._balance;
   }
 
-  receive(value: number, paymentHistory: Payment): void {
+  receive(value: number, paymentHistory: PaymentParams): void {
     this._balance += value;
     super.receive(value, paymentHistory);
   }
-  send(value: number, paymentHistory: Payment): number {
+  send(value: number, paymentHistory: PaymentParams): number {
     if (value < this.balance) {
       this._balance -= value;
     } else {

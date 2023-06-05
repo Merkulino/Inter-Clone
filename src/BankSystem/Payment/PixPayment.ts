@@ -1,6 +1,7 @@
 import Payment, {PaymentParams} from './Payment';
 
 export default class PixPayment extends Payment {
+  public paymentName: string = 'Pix';
   constructor(params: PaymentParams) {
     super(params);
   }

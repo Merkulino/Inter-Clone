@@ -1,10 +1,11 @@
 import Account from '../Account/Account';
 
 export type PaymentParams = {
+  paymentName: string;
   fromAccount: Account;
   toAccount: Account;
   value: number;
-  date?: Date;
+  date: Date;
 };
 
 export default abstract class Payment {
@@ -39,7 +40,7 @@ export default abstract class Payment {
     return this._date;
   }
 
-  pay(paymentHistory: Payment): string {
+  pay(paymentHistory: PaymentParams): string {
     const sendValue = this.fromAccount.send(this.value, paymentHistory);
     this.toAccount.receive(sendValue, paymentHistory);
 

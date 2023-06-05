@@ -24,6 +24,7 @@ export default function Routes() {
           animation: 'slide_from_right',
           headerTitleAlign: 'center',
           headerShadowVisible: false,
+          contentStyle: {backgroundColor: '#FFFFFF'},
         }}>
         <Stack.Screen
           name="Login"
