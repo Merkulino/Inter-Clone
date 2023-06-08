@@ -40,8 +40,8 @@ const Balance = () => {
             }
           }}
           options={[
-            {text: 'Crédito', value: credit},
-            {text: 'Débito', value: debit},
+            {text: 'Crédito', value: credit as CreditAccount},
+            {text: 'Débito', value: debit as DebitAccount},
           ]}
         />
       </View>
