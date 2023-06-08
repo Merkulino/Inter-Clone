@@ -3,11 +3,16 @@ import Account, {AccountParams} from './Account';
 import Credit from './Credit';
 
 export default class CreditAccount extends Account {
+  private static _accountType: string = 'Crédito';
   constructor(
     params: AccountParams,
     private _creditLimit: Credit = new Credit(100),
   ) {
     super(params);
+  }
+
+  get accountType(): string {
+    return CreditAccount._accountType;
   }
 
   get creditLimit() {

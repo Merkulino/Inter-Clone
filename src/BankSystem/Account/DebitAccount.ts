@@ -2,8 +2,13 @@ import {PaymentParams} from '../Payment/Payment';
 import Account, {AccountParams} from './Account';
 
 export default class DebitAccount extends Account {
+  public static _accountType: string = 'Débito';
   constructor(params: AccountParams, private _balance: number = 0) {
     super(params);
+  }
+
+  get accountType(): string {
+    return DebitAccount._accountType;
   }
 
   get balance() {

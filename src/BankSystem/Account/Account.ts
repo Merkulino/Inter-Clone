@@ -4,6 +4,7 @@ import User from '../User';
 type StatementType = {
   date: Date;
   from: string;
+  account: string;
   to: string;
   pay: string;
   value: number;
@@ -29,6 +30,8 @@ export default abstract class Account {
     // this._accountType = params._accountType;
   }
 
+  abstract get accountType(): string;
+
   get user(): User {
     return this._user;
   }
@@ -47,6 +50,7 @@ export default abstract class Account {
     this._bankStatement.push({
       date: paymentHistory.date,
       from: paymentHistory.fromAccount._user.name,
+      account: paymentHistory.fromAccount.accountType,
       to: paymentHistory.toAccount._user.name,
       pay: paymentHistory.paymentName,
       value: paymentHistory.value,
@@ -57,6 +61,7 @@ export default abstract class Account {
     this._bankStatement.push({
       date: paymentHistory.date,
       from: paymentHistory.fromAccount._user.name,
+      account: paymentHistory.fromAccount.accountType,
       to: paymentHistory.toAccount._user.name,
       pay: paymentHistory.paymentName,
       value: paymentHistory.value,

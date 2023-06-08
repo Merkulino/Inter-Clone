@@ -11,7 +11,7 @@ const pixStyle = StyleSheet.create({
     padding: 20,
   },
   header: {
-    gap: 30,
+    gap: 20,
   },
   btn: {
     backgroundColor: primaryColor,

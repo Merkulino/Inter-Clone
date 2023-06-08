@@ -1,22 +1,30 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {SafeAreaView, ScrollView, Text, View} from 'react-native';
 import {Balance} from '../Components/Balance';
 import {AccountContext} from '../AppContext/AccountProvider';
 
 function BankStatement() {
   const {
-    accountData: {debit},
+    accountData: {debit, credit},
   } = useContext(AccountContext);
-  // console.log(debit.bankStatement[0].to);
+  const [statements, setStatement] = useState(debit.bankStatement);
 
-  // Concertar como retorno o statement no momento de pagamento, ta ruim pra pegar aqui
+  useEffect(() => {
+    const newStatement = debit.bankStatement.concat(credit.bankStatement);
+    newStatement.sort((a, b) => {
+      console.log(b.date);
+      return b.date - a.date;
+    });
+    setStatement(newStatement);
+  }, [credit.bankStatement, debit.bankStatement]);
 
+  console.log(statements);
   return (
     <SafeAreaView>
       <ScrollView>
         <Balance />
-        {debit.bankStatement.length ? (
-          debit.bankStatement.map((statment, i) => (
+        {statements.length ? (
+          statements.map((statment, i) => (
             <>
               <View key={`${i}-${Math.random() * 55}`}>
                 <Text>{statment.date.toString()}</Text>
@@ -25,6 +33,7 @@ function BankStatement() {
                   <Text>
                     {statment.from} Pagou {statment.to}
                   </Text>
+                  <Text>Utilizando {statment.account}</Text>
                   <Text>Valor: {statment.value}</Text>
                 </View>
               </View>
