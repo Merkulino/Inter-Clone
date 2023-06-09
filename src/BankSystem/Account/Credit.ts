@@ -1,19 +1,5 @@
 import ICredit from '../Interfaces/ICredit';
-
-var mounth = [
-  'Janeiro',
-  'Fevereiro',
-  'Março',
-  'Abril',
-  'Maio',
-  'Junho',
-  'Julho',
-  'Agosto',
-  'Setembro',
-  'Outubro',
-  'Novembro',
-  'Dezembro',
-];
+import {mounth} from '../Interfaces/types';
 
 export default class Credit implements ICredit {
   private _limit: number;

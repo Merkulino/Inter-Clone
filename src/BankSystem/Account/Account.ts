@@ -49,6 +49,7 @@ export default abstract class Account {
   receive(_value: number, paymentHistory: PaymentParams): void {
     this._bankStatement.push({
       date: paymentHistory.date,
+      // formatedDate: paymentHistory.date
       from: paymentHistory.fromAccount._user.name,
       account: paymentHistory.fromAccount.accountType,
       to: paymentHistory.toAccount._user.name,
@@ -60,6 +61,7 @@ export default abstract class Account {
   send(value: number, paymentHistory: PaymentParams): number {
     this._bankStatement.push({
       date: paymentHistory.date,
+      // formatedDate
       from: paymentHistory.fromAccount._user.name,
       account: paymentHistory.fromAccount.accountType,
       to: paymentHistory.toAccount._user.name,

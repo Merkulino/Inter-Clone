@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import {SafeAreaView, ScrollView, Text, View} from 'react-native';
 import {Balance} from '../Components/Balance';
 import {AccountContext} from '../AppContext/AccountProvider';
+import {StateStyles} from '../Styles/Statement';
 
 function BankStatement() {
   const {
@@ -22,26 +23,35 @@ function BankStatement() {
   return (
     <SafeAreaView>
       <ScrollView>
-        <Balance />
+        <View style={StateStyles.container}>
+          <Balance />
+        </View>
         {statements.length ? (
           statements.map((statment, i) => (
             <>
-              <View key={`${i}-${Math.random() * 55}`}>
-                <Text>{statment.date.toString()}</Text>
-                <View>
-                  <Text>{statment.pay}</Text>
+              <View
+                style={StateStyles.content}
+                key={`${i}-${Math.random() * 55}`}>
+                <Text style={StateStyles.dateTxt}>
+                  {statment.date.toString()}
+                </Text>
+                <View style={StateStyles.separator} />
+                <View style={StateStyles.info}>
+                  <Text style={StateStyles.txtBold}>{statment.pay}</Text>
                   <Text>
                     {statment.from} Pagou {statment.to}
                   </Text>
                   <Text>Utilizando {statment.account}</Text>
-                  <Text>Valor: {statment.value}</Text>
+                  <Text style={StateStyles.txtBold}>
+                    R$ {Number(statment.value).toFixed(2)}
+                  </Text>
                 </View>
               </View>
               <View />
             </>
           ))
         ) : (
-          <Text> Extrato vazio </Text>
+          <Text style={StateStyles.emptyStatement}> Extrato vazio </Text>
         )}
       </ScrollView>
     </SafeAreaView>

@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 
 var primaryColor = '#FC882F';
-var primaryGreyColor = '#F5F6FA';
+var primaryGreyColor = '#eeeeee';
 var primaryGreyDarkColor = '#808080';
 
 const appStyles = StyleSheet.create({
@@ -45,6 +45,9 @@ const appStyles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 15,
   },
+  fontBold: {
+    fontWeight: '700',
+  },
 });
 
-export {appStyles, primaryColor};
+export {appStyles, primaryColor, primaryGreyColor, primaryGreyDarkColor};

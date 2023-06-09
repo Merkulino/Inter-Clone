@@ -63,7 +63,7 @@ function Pix() {
       Alert.alert('Erro ao enviar pix', `Error: ${error}`);
     }
   };
-
+  console.log(currAcc);
   return (
     <SafeAreaView style={pixStyle.container}>
       <View style={pixStyle.header}>

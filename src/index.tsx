@@ -13,6 +13,7 @@ import Ted from './Pages/Ted';
 import BankLip from './Pages/BankLip';
 import BankStatement from './Pages/BankStatement';
 import {RootNavigatorParamList} from './types';
+import {primaryColor} from './Styles/App';
 
 const Stack = createNativeStackNavigator<RootNavigatorParamList>();
 
@@ -49,7 +50,15 @@ export default function Routes() {
           component={EditProfile}
           options={{animation: 'slide_from_bottom'}}
         />
-        <Stack.Screen name="CreditCard" component={CreditCard} />
+        <Stack.Screen
+          name="CreditCard"
+          component={CreditCard}
+          options={{
+            title: 'Crédito',
+            headerStyle: {backgroundColor: primaryColor},
+            headerTintColor: '#ffffff',
+          }}
+        />
         <Stack.Screen name="Investment" component={Investment} />
         <Stack.Screen
           name="InvestmentDetails"

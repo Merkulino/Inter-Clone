@@ -40,8 +40,8 @@ const Balance = () => {
               return setCurrent(val);
             }
           }}>
-          <Picker.Item value={credit as Account} label="Crédito" />
           <Picker.Item value={debit as Account} label="Débito" />
+          <Picker.Item value={credit as Account} label="Crédito" />
         </Picker>
       </View>
     </>
