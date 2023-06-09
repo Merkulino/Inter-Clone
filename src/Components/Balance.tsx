@@ -5,7 +5,8 @@ import {appStyles} from '../Styles/App';
 import {AccountContext} from '../AppContext/AccountProvider';
 import DebitAccount from '../BankSystem/Account/DebitAccount';
 import CreditAccount from '../BankSystem/Account/CreditAccount';
-import Picker from '@ouroboros/react-native-picker';
+import {Picker} from '@react-native-picker/picker';
+import Account from '../BankSystem/Account/Account';
 
 const Balance = () => {
   const {
@@ -32,18 +33,16 @@ const Balance = () => {
       </View>
       <View>
         <Picker
-          value={currentAccount}
-          onChanged={val => {
+          selectedValue={currentAccount}
+          onValueChange={val => {
             // Precisei fazer essa validação por problema nas tipagens
             if (setCurrent) {
               return setCurrent(val);
             }
-          }}
-          options={[
-            {text: 'Crédito', value: credit as CreditAccount},
-            {text: 'Débito', value: debit as DebitAccount},
-          ]}
-        />
+          }}>
+          <Picker.Item value={credit as Account} label="Crédito" />
+          <Picker.Item value={debit as Account} label="Débito" />
+        </Picker>
       </View>
     </>
   );

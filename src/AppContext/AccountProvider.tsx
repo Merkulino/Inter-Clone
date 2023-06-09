@@ -3,7 +3,6 @@ import {createContext, useState} from 'react';
 import DebitAccount from '../BankSystem/Account/DebitAccount';
 import User from '../BankSystem/User';
 import CreditAccount from '../BankSystem/Account/CreditAccount';
-import Account from '../BankSystem/Account/Account';
 
 const user = new User(1, 'Melqui Brito', 'user@user.com', '1234567890'); // Depois apaga
 const debitAccount = new DebitAccount({id: 1, _user: user}, 200); // Apenas para desenvolvimento
@@ -17,7 +16,7 @@ type accountDataType = {
 interface IAccountContext {
   accountData: accountDataType;
   setData?(data: accountDataType): any;
-  currentAccount: Account;
+  currentAccount: DebitAccount | CreditAccount;
   setCurrent?(data: DebitAccount | CreditAccount): any;
 }
 
