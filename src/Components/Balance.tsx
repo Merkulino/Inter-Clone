@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {View} from 'react-native';
-import React, {useContext} from 'react';
+import React, {useCallback, useContext} from 'react';
 import {Text} from 'react-native';
 import {appStyles} from '../Styles/App';
 import {AccountContext} from '../AppContext/AccountProvider';
@@ -7,6 +8,7 @@ import DebitAccount from '../BankSystem/Account/DebitAccount';
 import CreditAccount from '../BankSystem/Account/CreditAccount';
 import {Picker} from '@react-native-picker/picker';
 import Account from '../BankSystem/Account/Account';
+import {useFocusEffect} from '@react-navigation/native';
 
 const Balance = () => {
   const {
@@ -14,6 +16,14 @@ const Balance = () => {
     currentAccount,
     setCurrent,
   } = useContext(AccountContext);
+
+  useFocusEffect(
+    useCallback(() => {
+      if (setCurrent) {
+        return setCurrent(debit);
+      }
+    }, []),
+  );
 
   return (
     <>

@@ -35,7 +35,8 @@ const IconButtonSelector = ({title, navigation, page}: NavigationBtnProp) => {
     <View style={appStyles.btnContainer}>
       <Icon.Button
         style={btnStyle.btn}
-        name="mail"
+        name="xbox"
+        iconStyle={{color: '#000000'}}
         onPress={() => navigation.navigate(page)}>
         <Text style={btnStyle.txt}>{title}</Text>
       </Icon.Button>
@@ -46,11 +47,10 @@ const IconButtonSelector = ({title, navigation, page}: NavigationBtnProp) => {
 const btnStyle = StyleSheet.create({
   btn: {
     backgroundColor: '#ffffff',
-    color: '#000000',
     flexDirection: 'column',
     justifyContent: 'center',
     shadowOpacity: 0,
-    height: 109,
+    height: '100%',
     borderRadius: 5,
   },
   txt: {

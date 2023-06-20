@@ -32,7 +32,7 @@ const appStyles = StyleSheet.create({
   btnContainer: {
     width: 110,
     height: 110,
-    borderWidth: 0.5,
+    borderWidth: 1,
     borderRadius: 5,
     borderColor: primaryGreyDarkColor,
   },

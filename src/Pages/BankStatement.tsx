@@ -13,13 +13,11 @@ function BankStatement() {
   useEffect(() => {
     const newStatement = debit.bankStatement.concat(credit.bankStatement);
     newStatement.sort((a, b) => {
-      console.log(b.date);
       return b.date - a.date;
     });
     setStatement(newStatement);
   }, [credit.bankStatement, debit.bankStatement]);
 
-  console.log(statements);
   return (
     <SafeAreaView>
       <ScrollView>
