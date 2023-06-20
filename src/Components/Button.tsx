@@ -15,6 +15,7 @@ type NavigationBtnProp = {
   title: string;
   navigation: NativeStackNavigationProp<RootNavigatorParamList>;
   page: RootPageString;
+  icon: string;
 };
 
 const PrimaryButton = ({title, btnFunction}: IBtnProp) => (
@@ -29,14 +30,19 @@ const PrimaryButton = ({title, btnFunction}: IBtnProp) => (
   </TouchableOpacity>
 );
 
-const IconButtonSelector = ({title, navigation, page}: NavigationBtnProp) => {
+const IconButtonSelector = ({
+  title,
+  navigation,
+  page,
+  icon,
+}: NavigationBtnProp) => {
   // Ver essa questão dos Icon não funcionando
   return (
     <View style={appStyles.btnContainer}>
       <Icon.Button
         style={btnStyle.btn}
-        name="xbox"
-        iconStyle={{color: '#000000'}}
+        name={icon}
+        iconStyle={btnStyle.icon}
         onPress={() => navigation.navigate(page)}>
         <Text style={btnStyle.txt}>{title}</Text>
       </Icon.Button>
@@ -52,6 +58,11 @@ const btnStyle = StyleSheet.create({
     shadowOpacity: 0,
     height: '100%',
     borderRadius: 5,
+  },
+  icon: {
+    color: primaryColor,
+    marginRight: 0,
+    marginBottom: 10,
   },
   txt: {
     color: '#000000',

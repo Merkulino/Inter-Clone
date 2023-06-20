@@ -57,26 +57,31 @@ function Home({navigation}: NavigationScreenProp) {
           title="Crédito"
           navigation={navigation}
           page="CreditCard"
+          icon="credit-card"
         />
         <IconButtonSelector
           title="PIX"
           navigation={navigation}
           page="PaymentPIX"
+          icon="key"
         />
         <IconButtonSelector
           title="Investir"
           navigation={navigation}
           page="Investment"
+          icon="chart-line"
         />
         <IconButtonSelector
           title="Boleto"
           navigation={navigation}
           page="BankLipPayment"
+          icon="file-invoice"
         />
         <IconButtonSelector
           title="Transferências"
           navigation={navigation}
           page="PaymentTED"
+          icon="money-bill-wave"
         />
       </View>
       <View style={homeStyle.footerContent}>
