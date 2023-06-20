@@ -46,6 +46,7 @@ const appStyles = StyleSheet.create({
     paddingVertical: 15,
   },
   fontBold: {
+    color: 'black',
     fontWeight: '700',
   },
 });
