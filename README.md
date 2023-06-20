@@ -5,8 +5,7 @@ Um sistema bancario utilizando o [Banco Inter](https://www.bancointer.com.br/) c
 
 ## 💻 Desenvolvimento
 
-Escolhi o Banco Inter por ter uma ótima interface e um ótimo negócio, o sistema bancario seria perfeiro para a pratica de POO
-Objetivo, voltar estudo mobile e aprender React Native. Praticar POO e Front End
+Desenvolvi um sistema bancário baseado no incrível Banco Inter. Escolhi essa plataforma devido à sua excelente interface e ao seu modelo de negócio impressionante. O objetivo do projeto era mergulhar no estudo de desenvolvimento mobile e aprender React Native, enquanto praticava conceitos de Programação Orientada a Objetos (POO) e Front-End.
 
 ### Tecnologias e habilidades usadas
 
@@ -18,9 +17,7 @@ Objetivo, voltar estudo mobile e aprender React Native. Praticar POO e Front End
  - POO
  - CRUD (Futuramente)
 
-Pensei nas principais funcionalidades de um banco: autenticação de usuario, diferentes tipos de contas (Crédito Débito), 
-principais tipos de pagamentos no brasil: PIX TED Boleto, uma area de investimentos com simulações de rendimento e aplicar um Backend utilizando
-Firebase fazendo a validação de tudo isso, tornando uma simulação bem real.
+Ao projetar o Inter-Clone, pensei nas principais funcionalidades de um banco: autenticação de usuário, diferentes tipos de contas (crédito e débito) e os principais métodos de pagamento no Brasil, como PIX, TED e boleto. Além disso, criei uma área de investimentos com simulações de rendimento. Também planejo integrar um Backend utilizando o Firebase para validação das funcionalidades, proporcionando uma experiência de simulação muito realista.
 
 ### Funcionalidades
 
@@ -41,8 +38,7 @@ Firebase fazendo a validação de tudo isso, tornando uma simulação bem real.
 
 ## 👨‍💻 Próximos passos
 
-Esse projeto acabou ficando grande e não deu tempo de implementar basrtante coisa, então ainda falta muitas funcionalidades a serem
-implementasdas, mas as principais funcionalidades que futuramente estarei implementando serão:
+Os próximos passos desse projeto promissor envolvem a implementação de detalhes de crédito, pagamentos com boleto e transferência TED, além de um sistema de CRUD de usuários. Também estou empolgado para implementar um back-end com o Firebase, sendo possivel realizar autenticações de usuarios e validar suas informações em pagamentos.
 
  - Implementar detalhes de crédito
  - Pagamentos com boleto
@@ -51,7 +47,9 @@ implementasdas, mas as principais funcionalidades que futuramente estarei implem
  - Implementar autenticação com Firebase
  - Validar usuarios em pagamentos
 
-## 🤝 Autores
+Este projeto acabou ficando bastante abrangente e ainda há muitas funcionalidades a serem implementadas, mas estou entusiasmado com o progresso e as possibilidades que ele oferece. Fiquem atentos para mais atualizações!
+
+## 🤝 Contato
 
 **Melqui Brito de Jesus**
 
