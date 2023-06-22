@@ -1,5 +1,5 @@
-# :construction: README em construção ! :construction:
-# Inter-Clone
+:construction: README em construção ! :construction:
+# Clone do App do Banco Inter 
 
 Um sistema bancario utilizando o [Banco Inter](https://www.bancointer.com.br/) como base
 
@@ -33,8 +33,6 @@ Ao projetar o Inter-Clone, pensei nas principais funcionalidades de um banco: au
  - Fazer PIX utilizando débito ou crédito
  - Verificar extrato
  - Verificar fatura e limite do cartão
-
-## Como rodar 🚀
 
 ## 👨‍💻 Próximos passos
 
